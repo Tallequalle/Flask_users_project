@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+<style>
+
+</style>
+
+{% block content %}
+
+<div class="column is-4 is-offset-4">
+    <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+
+                    <div id="navbarMenuHeroA" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a href="{{ url_for('login') }}" class="navbar-item">
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    <h3 class="title">Ratio</h3>
+    <div class="box">
+        <form method="POST" action="/ratio">
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="first_team" placeholder="First team" autofocus="">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="second_team" placeholder="Second team">
+                </div>
+            </div>
+            <button class="button is-block is-info is-large is-fullwidth">Submit</button>
+        </form>
+        <div>
+                <p>Sequence Matcher: {{ ratio_value_sm }}</p>
+                <p>Tanimoto: {{ ratio_value_tn }}</p>
+            </div>
+        <form method="POST" action="/update">
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="old_password" placeholder="Old Password" autofocus="">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="new_password" placeholder="New Password" autofocus="">
+                </div>
+            </div>
+            <button class="button is-block is-info is-large is-fullwidth">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
